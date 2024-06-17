@@ -13,10 +13,5 @@ jobs:
         aws-region: us-east-1
   - run: aws s3 cp HelloWorld.zip s3://lambdafunction22/   
   - run: |
-          aws lambda create-function \
-          --function-name HelloWorld \
-          --runtime python3.8 \
-          --role arn:aws:iam::471112498885:role/lambdaexcustion \
-          --handler HelloWorld.lambda_handler \
-          --zip-file fileb://HelloWorld.zip
-  - run: aws lambda invoke --function-name HelloWorld output.txt       
+          aws cloudformation deploy --template-file template.yml --capabilities CAPABILITY_NAMED_IAM
+  #- run: aws lambda invoke --function-name HelloWorld output.txt       
