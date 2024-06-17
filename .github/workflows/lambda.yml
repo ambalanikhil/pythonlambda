@@ -13,5 +13,5 @@ jobs:
         aws-region: us-east-1
   - run: aws s3 cp HelloWorld.zip s3://lambdafunction22/   
   - run: |
-          aws cloudformation deploy --template-file template.yml --capabilities CAPABILITY_NAMED_IAM
+          aws cloudformation deploy --stack-name lambda-funtion --template-file template.yml --capabilities CAPABILITY_NAMED_IAM
   #- run: aws lambda invoke --function-name HelloWorld output.txt       
