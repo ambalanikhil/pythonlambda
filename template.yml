@@ -1,0 +1,19 @@
+Transform: 'AWS::Serverless-2016-10-31'
+
+Description: Deploy Lambda function from CodeCommit
+
+Resources:
+  MyLambdaFunction:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: HelloWorld.lambda_handler
+      Runtime: python3.8
+      CodeUri: s3://lambdafunction22/HelloWorld.zip
+      MemorySize: 128
+      Timeout: 60
+      Role: arn:aws:iam::471112498885:role/lambdaexcustion  # Replace with your Lambda execution role ARN
+
+Outputs:
+  LambdaFunctionARN:
+    Description: "ARN of the Lambda function"
+    Value: !GetAtt MyLambdaFunction.Arn
